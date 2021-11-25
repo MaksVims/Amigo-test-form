@@ -13,13 +13,16 @@ export const Label = styled.label`
 `
 
 export const FormInput = styled.input`
-  padding: 16px 16px 15px 16px;
   width: 100%;
   font-size: 16px;
   border-radius: 6px;
   outline: 1px solid transparent;
   box-shadow: 0 4px 8px rgba(44, 39, 56, 0.04);
-  border: 1px solid ${({theme}) => theme.color.border.input};
+  border: ${props => props.focus ?
+          `2px solid ${props.theme.color.primary}` :
+          `1px solid ${props.theme.color.border.input}`
+  };
+  padding: ${props => props.focus ? `15px 15px 14px 15px` : '16px 16px 15px 16px'};
 
   &::placeholder {
     color: ${({theme}) => theme.color.text.placeholder};

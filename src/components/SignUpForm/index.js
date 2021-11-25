@@ -1,13 +1,10 @@
 import React from 'react';
 import {Form, Formik} from "formik";
-import {FormContainer, HaveAccount, Title} from "./styles";
-import MyInput from "../UI/MyInput";
-import MyCheckBox from "../UI/MyCheckBox";
+import {ConfirmText, FormContainer, HaveAccount, Title} from "./styles";
 import {Link, Text} from "../styled-common";
-import MyButton from "../UI/MyButton";
-import MySelect from "../UI/MySelect";
 import {OPTIONS_LANG_SELECT} from "./const";
-import {validation} from "./validation";
+import {MyButton, MyCheckBox, MyInput, MySelect} from "../UI";
+import {validation} from "./validate";
 
 const SignUpForm = () => {
 
@@ -16,7 +13,7 @@ const SignUpForm = () => {
       <Title>Регистрация</Title>
       <HaveAccount>
         <Text>Уже есть аккаунт?</Text>
-        <Link href='#'>Войти</Link>
+        <Link href='#' aria-label="Войти">Войти</Link>
       </HaveAccount>
       <Formik
         initialValues={{
@@ -30,19 +27,24 @@ const SignUpForm = () => {
         validate={validation}
       >
         {({isValid, dirty, isSubmitting, ...props}) => (
-          <Form>
-            <MyInput name="name" label={"Имя"} placeholder="Введите Ваше имя"/>
+          <Form aria-label="Форма регистрации">
+            <MyInput name="name" label="Имя" placeholder="Введите Ваше имя" autofocus/>
             <MyInput type="email" name="email" label="Email" placeholder="Введите ваш email"/>
             <MyInput type="tel" name="tel" label="Номер телефона" placeholder="Введите номер телефона"/>
             <MySelect name='language' options={OPTIONS_LANG_SELECT} label="Язык"/>
-            <MyCheckBox name="isConfirmConditions">
-              <Text>
+            <MyCheckBox name="isConfirmConditions" aria-label='Принять условия'>
+              <ConfirmText>
                 Принимаю
-                <Link href='#'>условия</Link>
+                <Link href='#' aria-label="условия использования">условия</Link>
                 использования
-              </Text>
+              </ConfirmText>
             </MyCheckBox>
-            <MyButton disabled={!isValid || isSubmitting || !dirty} type="submit" primary>Зарегистрироваться</MyButton>
+            <MyButton
+              disabled={!isValid || isSubmitting || !dirty}
+              type="submit"
+              primary
+              aria-label="Зарегистрироваться"
+            >Зарегистрироваться</MyButton>
           </Form>
         )}
 

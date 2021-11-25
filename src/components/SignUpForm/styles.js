@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Text} from "../styled-common";
 
 export const Title = styled.h1`
   font-size: 34px;
@@ -18,4 +19,14 @@ export const FormContainer = styled.section`
   padding: 40px 30px;
   margin: 0 auto;
 
+  @media (max-width: 500px) {
+    padding: 30px 15px;
+  }
+`
+
+
+export const ConfirmText = styled(Text)`
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
 `

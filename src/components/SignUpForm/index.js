@@ -26,7 +26,7 @@ const SignUpForm = () => {
         onSubmit={values => alert(JSON.stringify(values, null, 2))}
         validate={validation}
       >
-        {({isValid, dirty, isSubmitting, ...props}) => (
+        {({isValid, dirty, isSubmitting}) => (
           <Form aria-label="Форма регистрации">
             <MyInput name="name" label="Имя" placeholder="Введите Ваше имя" autofocus/>
             <MyInput type="email" name="email" label="Email" placeholder="Введите ваш email"/>
@@ -47,10 +47,8 @@ const SignUpForm = () => {
             >Зарегистрироваться</MyButton>
           </Form>
         )}
-
       </Formik>
     </FormContainer>
-
   );
 };
 

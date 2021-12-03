@@ -7,6 +7,7 @@ export const Title = styled.h1`
   font-weight: 700;
   margin-bottom: 8px;
 `
+
 export const HaveAccount = styled.div`
   margin-bottom: 58px;`
 

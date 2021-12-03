@@ -10,6 +10,7 @@ const MySelect = ({options, label, ...props}) => {
   const [dropDownOpen, toggleDropDown] = useToggle()
 
   const currentOption = options?.find(option => option.value === field.value)
+    /* в строке выше есть проверка на options. в строке ниже тоже тогда не помешает */
   const renderedOptions = options.filter(option => option.value && option.value !== field.value)
 
   const clickOptionHandler = (e, value) => {
